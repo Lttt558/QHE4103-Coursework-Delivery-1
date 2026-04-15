@@ -1,40 +1,113 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>车辆交易系统 - 成员C模块</title>
-    <style>
-        /* --- 全局样式 --- */
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --success-color: #28a745;
-            --bg-color: #f8f9fa;
-            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>add car</title>
+        <style>
+        .logo-img {
+                position: absolute;
+                top: 5px;
+                left: 50px;
+                width: 140px;
+                height: auto;
+            }
 
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: #333; }
-        a { text-decoration: none; color: inherit; }
+            .links {
+                background-color: gray;
+                text-align: right;
+                padding: 20px 0;
+                margin-top: 10px;
+            }
+
+            .links a {
+                display: inline-block;
+                color: white;
+                font-size: 30px;
+                margin: 0 50px;
+                padding: 20px 50px;
+                text-decoration: none;
+            }
+
+            .links a:hover {
+                background-color: darkgray;
+                color: black;
+            }
+
+            .links a.active {
+                background-color: darkgray;
+                color: black;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 700px;
+                margin: 60px auto;
+                background: white;
+                padding: 30px;
+                border: 1px solid #ccc;
+            }
+            
+            h2 {
+                border-bottom: 2px solid #444;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+            
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+            
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            
+            .btn-submit {
+                background-color: #28a745;
+                color: white;
+                padding: 12px 30px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                width: 100%;
+                font-size: 16px;
+            }
+            
+            .btn-submit:hover {
+                background-color: #218838;
+            }
+        </style>
+    </head>
+
+    <body>
+        <img src="LOGO.jpg" class="logo-img">
         
-        /* 导航栏样式 */
-        nav { background: #333; padding: 1rem; display: flex; justify-content: center; gap: 20px; }
-        nav button { background: #555; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; border-radius: 4px; }
-        nav button:hover { background: var(--primary-color); }
-
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: var(--card-shadow); }
+        <nav>
+            <div class="logo"></div>
+            <div class="links">
+                <a href="index.html">HOME</a>
+                <a href="search.html">SEARCH</a>
+                <a href="add-car.html" class="active">SELL</a>
+                <a href="login.html">LOGIN</a>
+                <a href="register.html">REGISTER</a>
+            </div>
+        </nav>
         
-        /* 页面切换逻辑 */
-        .page-section { display: none; }
-        .page-section.active { display: block; }
-
-        h2 { border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 20px; }
-
-        /* --- 1. 发布车辆页样式 --- */
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-        .btn-submit { background-color: var(--success-color); color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; }
-        .btn-submit:hover { background-color: #218838; }
-
-        
+    </body>
+</html>
