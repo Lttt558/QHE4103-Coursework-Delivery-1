@@ -1,175 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-    <style>
-        body {
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+        <style>
+            .logo-img {
+                position: absolute;
+                top: 5px;
+                left: 50px;
+                width: 140px;
+                height: auto;
+            }
+
+            .links {
+                background-color: gray;
+                text-align: right;
+                padding: 20px 0;
+                margin-top: 10px;
+            }
+
+            .links a {
+                display: inline-block;
+                color: white;
+                font-size: 30px;
+                margin: 0 50px;
+                padding: 20px 50px;
+                text-decoration: none;
+            }
+
+            .links a:hover {
+                background-color: darkgray;
+                color: black;
+            }
+
+            .links a.active {
+                background-color: darkgray;
+                color: black;
+            }
+            
+            body {
             background: #f0f0f0;
             font-family: Arial, sans-serif;
             padding: 20px;
-        }
-        .box {
+            }
+            .box {
             background: white;
             border: 1px solid #aaa;
             max-width: 550px;
             margin: 0 auto;
             padding: 20px 25px;
-        }
-        h2 {
+            }
+            h2 {
             margin-top: 5px;
-        }
-        .row {
+            }
+            .row {
             margin-bottom: 14px;
-        }
-        label {
+            }
+            label {
             display: block;
             margin-bottom: 4px;
             font-weight: bold;
-        }
-        input {
+            }
+            input {
             width: 95%;
             padding: 6px 8px;
             border: 1px solid #777;
-        }
-        .err {
+            }
+            .err {
             color: #b00;
             font-size: 13px;
             min-height: 18px;
-        }
-        button {
+            }
+            button {
             padding: 8px 18px;
             margin-right: 8px;
             background: #ddd;
             border: 1px solid #666;
             cursor: pointer;
-        }
-        #regBtn {
+            }
+            #regBtn {
             background: #2e6b2e;
             color: white;
             border: none;
-        }
-    </style>
-</head>
-<body>
-<div class="box">
-    <h2>Seller Registration</h2>
-    <form id="regForm">
-        <div class="row">
-            <label>Full name</label>
-            <input type="text" id="fullname">
-            <div class="err" id="eName"></div>
+            }
+        </style>
+    </head>
+    <body>
+        
+        <img src="LOGO.jpg" class="logo-img">
+        
+        <nav>
+            <div class="logo"></div>
+            <div class="links">
+                <a href="index.html">HOME</a>
+                <a href="search.html">SEARCH</a>
+                <a href="add-car.html">SELL</a>
+                <a href="login.html" class="active">LOGIN</a>
+                <a href="register.html">REGISTER</a>
+            </div>
+        </nav>
+        
+        <div class="box">
+            <h2>Seller Registration</h2>
+            <form id="regForm">
+                <div class="row">
+                    <label>Full name</label>
+                    <input type="text" id="fullname">
+                    <div class="err" id="eName"></div>
+                </div>
+                <div class="row">
+                    <label>Address</label>
+                    <input type="text" id="address">
+                    <div class="err" id="eAddr"></div>
+                </div>
+                <div class="row">
+                    <label>Phone (China)</label>
+                    <input type="text" id="phone">
+                    <div class="err" id="ePhone"></div>
+                </div>
+                <div class="row">
+                    <label>Email</label>
+                    <input type="text" id="email">
+                    <div class="err" id="eEmail"></div>
+                </div>
+                <div class="row">
+                    <label>Username</label>
+                    <input type="text" id="username">
+                    <div class="err" id="eUser"></div>
+                </div>
+                <div class="row">
+                    <label>Password</label>
+                    <input type="password" id="password">
+                    <div class="err" id="ePass"></div>
+                </div>
+                <div>
+                    <button type="submit" id="regBtn">Register</button>
+                    <button type="button" id="clearBtn">Clear</button>
+                </div>
+            </form>
         </div>
-        <div class="row">
-            <label>Address</label>
-            <input type="text" id="address">
-            <div class="err" id="eAddr"></div>
-        </div>
-        <div class="row">
-            <label>Phone (China)</label>
-            <input type="text" id="phone">
-            <div class="err" id="ePhone"></div>
-        </div>
-        <div class="row">
-            <label>Email</label>
-            <input type="text" id="email">
-            <div class="err" id="eEmail"></div>
-        </div>
-        <div class="row">
-            <label>Username</label>
-            <input type="text" id="username">
-            <div class="err" id="eUser"></div>
-        </div>
-        <div class="row">
-            <label>Password</label>
-            <input type="password" id="password">
-            <div class="err" id="ePass"></div>
-        </div>
-        <div>
-            <button type="submit" id="regBtn">Register</button>
-            <button type="button" id="clearBtn">Clear</button>
-        </div>
-    </form>
-</div>
-<script>
-    let nameInp = document.getElementById('fullname');
-    let addrInp = document.getElementById('address');
-    let phoneInp = document.getElementById('phone');
-    let emailInp = document.getElementById('email');
-    let userInp = document.getElementById('username');
-    let passInp = document.getElementById('password');
+        <script>
+            let nameInp = document.getElementById('fullname');
+            let addrInp = document.getElementById('address');
+            let phoneInp = document.getElementById('phone');
+            let emailInp = document.getElementById('email');
+            let userInp = document.getElementById('username');
+            let passInp = document.getElementById('password');
 
-    let eName = document.getElementById('eName');
-    let eAddr = document.getElementById('eAddr');
-    let ePhone = document.getElementById('ePhone');
-    let eEmail = document.getElementById('eEmail');
-    let eUser = document.getElementById('eUser');
-    let ePass = document.getElementById('ePass');
+            let eName = document.getElementById('eName');
+            let eAddr = document.getElementById('eAddr');
+            let ePhone = document.getElementById('ePhone');
+            let eEmail = document.getElementById('eEmail');
+            let eUser = document.getElementById('eUser');
+            let ePass = document.getElementById('ePass');
 
-    const nameRe = /^[A-Za-z\s]+$/;
-    const addrRe = /^[A-Za-z0-9\s]+$/;
-    const phoneRe = /^1[0-9]{10}$/;
-    const emailRe = /^[^\s@]+@[^\s@]+\.(cn|com)$/i;
-    const userRe = /^[A-Za-z0-9]{6,}$/;
+            const nameRe = /^[A-Za-z\s]+$/;
+            const addrRe = /^[A-Za-z0-9\s]+$/;
+            const phoneRe = /^1[0-9]{10}$/;
+            const emailRe = /^[^\s@]+@[^\s@]+\.(cn|com)$/i;
+            const userRe = /^[A-Za-z0-9]{6,}$/;
 
-    function checkName() {
-        let v = nameInp.value.trim();
-        if (v === '') { eName.innerText = 'Required'; return false; }
-        if (!nameRe.test(v)) { eName.innerText = 'Only letters and spaces'; return false; }
-        eName.innerText = ''; return true;
-    }
-    function checkAddr() {
-        let v = addrInp.value.trim();
-        if (v === '') { eAddr.innerText = 'Required'; return false; }
-        if (!addrRe.test(v)) { eAddr.innerText = 'Only letters, numbers, spaces'; return false; }
-        eAddr.innerText = ''; return true;
-    }
-    function checkPhone() {
-        let v = phoneInp.value.trim();
-        if (v === '') { ePhone.innerText = 'Required'; return false; }
-        if (!phoneRe.test(v)) { ePhone.innerText = '11 digits starting with 1'; return false; }
-        ePhone.innerText = ''; return true;
-    }
-    function checkEmail() {
-        let v = emailInp.value.trim();
-        if (v === '') { eEmail.innerText = 'Required'; return false; }
-        if (!emailRe.test(v)) { eEmail.innerText = 'Must contain @, end .cn or .com'; return false; }
-        eEmail.innerText = ''; return true;
-    }
-    function checkUser() {
-        let v = userInp.value.trim();
-        if (v === '') { eUser.innerText = 'Required'; return false; }
-        if (!userRe.test(v)) { eUser.innerText = 'At least 6 letters/numbers'; return false; }
-        eUser.innerText = ''; return true;
-    }
-    function checkPass() {
-        let v = passInp.value;
-        if (v === '') { ePass.innerText = 'Required'; return false; }
-        if (!userRe.test(v)) { ePass.innerText = 'At least 6 letters/numbers'; return false; }
-        ePass.innerText = ''; return true;
-    }
+            function checkName() {
+                let v = nameInp.value.trim();
+                if (v === '') { eName.innerText = 'Required'; return false; }
+                if (!nameRe.test(v)) { eName.innerText = 'Only letters and spaces'; return false; }
+                eName.innerText = ''; return true;
+            }
+            function checkAddr() {
+                let v = addrInp.value.trim();
+                if (v === '') { eAddr.innerText = 'Required'; return false; }
+                if (!addrRe.test(v)) { eAddr.innerText = 'Only letters, numbers, spaces'; return false; }
+                eAddr.innerText = ''; return true;
+            }
+            function checkPhone() {
+                let v = phoneInp.value.trim();
+                if (v === '') { ePhone.innerText = 'Required'; return false; }
+                if (!phoneRe.test(v)) { ePhone.innerText = '11 digits starting with 1'; return false; }
+                ePhone.innerText = ''; return true;
+            }
+            function checkEmail() {
+                let v = emailInp.value.trim();
+                if (v === '') { eEmail.innerText = 'Required'; return false; }
+                if (!emailRe.test(v)) { eEmail.innerText = 'Must contain @, end .cn or .com'; return false; }
+                eEmail.innerText = ''; return true;
+            }
+            function checkUser() {
+                let v = userInp.value.trim();
+                if (v === '') { eUser.innerText = 'Required'; return false; }
+                if (!userRe.test(v)) { eUser.innerText = 'At least 6 letters/numbers'; return false; }
+                eUser.innerText = ''; return true;
+            }
+            function checkPass() {
+                let v = passInp.value;
+                if (v === '') { ePass.innerText = 'Required'; return false; }
+                if (!userRe.test(v)) { ePass.innerText = 'At least 6 letters/numbers'; return false; }
+                ePass.innerText = ''; return true;
+            }
+            
+            nameInp.oninput = checkName;
+            addrInp.oninput = checkAddr;
+            phoneInp.oninput = checkPhone;
+            emailInp.oninput = checkEmail;
+            userInp.oninput = checkUser;
+            passInp.oninput = checkPass;
 
-    nameInp.oninput = checkName;
-    addrInp.oninput = checkAddr;
-    phoneInp.oninput = checkPhone;
-    emailInp.oninput = checkEmail;
-    userInp.oninput = checkUser;
-    passInp.oninput = checkPass;
-
-    document.getElementById('regForm').onsubmit = function(e) {
-        e.preventDefault();
-        let ok = checkName() & checkAddr() & checkPhone() & checkEmail() & checkUser() & checkPass();
-        if (ok) {
-            alert('Registered (demo)');
-            this.reset();
-            eName.innerText = eAddr.innerText = ePhone.innerText = eEmail.innerText = eUser.innerText = ePass.innerText = '';
-        }
-    };
-
-    document.getElementById('clearBtn').onclick = function() {
-        document.getElementById('regForm').reset();
-        eName.innerText = eAddr.innerText = ePhone.innerText = eEmail.innerText = eUser.innerText = ePass.innerText = '';
-    };
-</script>
-</body>
+            document.getElementById('regForm').onsubmit = function(e) {
+                e.preventDefault();
+                let ok = checkName() & checkAddr() & checkPhone() & checkEmail() & checkUser() & checkPass();
+                if (ok) {
+                    alert('Registered (demo)');
+                    this.reset();
+                    eName.innerText = eAddr.innerText = ePhone.innerText = eEmail.innerText = eUser.innerText = ePass.innerText = '';
+                }
+            };
+            
+            document.getElementById('clearBtn').onclick = function() {
+                document.getElementById('regForm').reset();
+                eName.innerText = eAddr.innerText = ePhone.innerText = eEmail.innerText = eUser.innerText = ePass.innerText = '';
+            };
+        </script>
+    </body>
 </html>
