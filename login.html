@@ -1,138 +1,145 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Login - CarNext</title>
-    <style>
-        .logo-img {
-            position: absolute;
-            top: 5px;
-            left: 50px;
-            width: 140px;
-            height: auto;
-        }
-
-        .links {
-            background-color: gray;
-            text-align: right;
-            padding: 20px 0;
-            margin-top: 10px;
-        }
-
-        .links a {
-            display: inline-block;
-            color: white;
-            font-size: 30px;
-            margin: 0 50px;
-            padding: 20px 50px;
-            text-decoration: none;
-        }
-
-        .links a:hover {
-            background-color: darkgray;
-            color: black;
-        }
-
-        .links a.active {
-            background-color: darkgray;
-            color: black;
-        }
-
-        .box {
-            background: white;
-            border: 1px solid #aaa;
-            max-width: 400px;
-            margin: 80px auto;
-            padding: 20px 25px;
-        }
-        .box h2 {
-            margin-top: 5px;
-        }
-        .box .row {
-            margin-bottom: 16px;
-        }
-        .box label {
-            display: block;
-            margin-bottom: 4px;
-            font-weight: bold;
-        }
-        .box input {
-            width: 95%;
-            padding: 6px 8px;
-            border: 1px solid #777;
-        }
-        .box .err {
-            color: #b00;
-            font-size: 13px;
-            min-height: 18px;
-        }
-        .box button {
-            width: 100%;
-            padding: 9px;
-            background: #2e6b2e;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <img src="LOGO.jpg" class="logo-img">
-    <nav>
-        <div class="logo"></div>
-        <div class="links">
-            <a href="index.html">HOME</a>
-            <a href="search.html">SEARCH</a>
-            <a href="add-car.html">SELL</a>
-            <a href="login.html" class="active">LOGIN</a>
-            <a href="register.html">REGISTER</a>
-        </div>
-    </nav>
-
-    <div class="box">
-        <h2>Seller Login</h2>
-        <form id="loginForm">
-            <div class="row">
-                <label>Username</label>
-                <input type="text" id="username">
-                <div class="err" id="eUser"></div>
-            </div>
-            <div class="row">
-                <label>Password</label>
-                <input type="password" id="password">
-                <div class="err" id="ePass"></div>
-            </div>
-            <button type="submit">Log in</button>
-        </form>
-    </div>
-
-    <script>
-        let userInp = document.getElementById('username');
-        let passInp = document.getElementById('password');
-        let eUser = document.getElementById('eUser');
-        let ePass = document.getElementById('ePass');
-
-        userInp.oninput = function() {
-            if (userInp.value.trim() !== '') eUser.innerText = '';
-            else eUser.innerText = 'Required';
-        };
-        passInp.oninput = function() {
-            if (passInp.value !== '') ePass.innerText = '';
-            else ePass.innerText = 'Required';
-        };
-
-        document.getElementById('loginForm').onsubmit = function(e) {
-            e.preventDefault();
-            let uOk = userInp.value.trim() !== '';
-            let pOk = passInp.value !== '';
-            if (!uOk) eUser.innerText = 'Required';
-            if (!pOk) ePass.innerText = 'Required';
-            if (uOk && pOk) {
-                alert('Login successful (demo)');
-                this.reset();
-                eUser.innerText = ePass.innerText = '';
+    <head>
+        <title>Login - CarNext</title>
+        <style>
+            .logo-img {
+                position: absolute;
+                top: 5px;
+                left: 50px;
+                width: 140px;
+                height: auto;
             }
-        };
-    </script>
 
-</body>
+            .links {
+                background-color: gray;
+                text-align: right;
+                padding: 20px 0;
+                margin-top: 10px;
+            }
+
+            .links a {
+                display: inline-block;
+                color: white;
+                font-size: 30px;
+                margin: 0 50px;
+                padding: 20px 50px;
+                text-decoration: none;
+            }
+
+            .links a:hover {
+                background-color: darkgray;
+                color: black;
+            }
+
+            .links a.active {
+                background-color: darkgray;
+                color: black;
+            }
+
+            .login-container {
+                background: #f0f0f0;
+                padding: 80px 0;
+            }
+            .login-box {
+                background: white;
+                border: 1px solid #aaa;
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 20px 25px;
+            }
+            .login-box h2 {
+                margin-top: 5px;
+            }
+            .form-row {
+                margin-bottom: 16px;
+            }
+            .form-row label {
+                display: block;
+                margin-bottom: 4px;
+                font-weight: bold;
+            }
+            .form-row input {
+                width: 95%;
+                padding: 6px 8px;
+                border: 1px solid #777;
+            }
+            .error-msg {
+                color: #b00;
+                font-size: 13px;
+                min-height: 18px;
+            }
+            .submit-btn {
+                width: 100%;
+                padding: 9px;
+                background: #2e6b2e;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="LOGO.jpg" class="logo-img">
+        
+        <nav>
+            <div class="logo"></div>
+            <div class="links">
+                <a href="index.html">HOME</a>
+                <a href="search.html">SEARCH</a>
+                <a href="add-car.html">SELL</a>
+                <a href="login.html" class="active">LOGIN</a>
+                <a href="register.html">REGISTER</a>
+            </div>
+        </nav>
+
+        <div class="login-container">
+            <div class="login-box">
+                <h2>Seller Login</h2>
+                <form id="loginForm">
+                    <div class="form-row">
+                        <label>Username</label>
+                        <input type="text" id="username">
+                        <div class="error-msg" id="eUser"></div>
+                    </div>
+                    <div class="form-row">
+                        <label>Password</label>
+                        <input type="password" id="password">
+                        <div class="error-msg" id="ePass"></div>
+                    </div>
+                    <button type="submit" class="submit-btn">Log in</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            let userInp = document.getElementById('username');
+            let passInp = document.getElementById('password');
+            let eUser = document.getElementById('eUser');
+            let ePass = document.getElementById('ePass');
+
+            userInp.oninput = function() {
+                if (userInp.value.trim() !== '') eUser.innerText = '';
+                else eUser.innerText = 'Required';
+            };
+            passInp.oninput = function() {
+                if (passInp.value !== '') ePass.innerText = '';
+                else ePass.innerText = 'Required';
+            };
+
+            document.getElementById('loginForm').onsubmit = function(e) {
+                e.preventDefault();
+                let uOk = userInp.value.trim() !== '';
+                let pOk = passInp.value !== '';
+                if (!uOk) eUser.innerText = 'Required';
+                if (!pOk) ePass.innerText = 'Required';
+                if (uOk && pOk) {
+                    alert('Login successful (demo)');
+                    this.reset();
+                    eUser.innerText = ePass.innerText = '';
+                }
+            };
+        </script>
+
+    </body>
 </html>
