@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register</title>
+        <title>Register - CarNext</title>
         <style>
             .logo-img {
                 position: absolute;
@@ -36,51 +36,50 @@
                 background-color: darkgray;
                 color: black;
             }
-            
-            body {
-            background: #f0f0f0;
-            font-family: Arial, sans-serif;
-            padding: 20px;
+
+            .register-container {
+                background: #f0f0f0;
+                padding: 80px 0;
             }
-            .box {
-            background: white;
-            border: 1px solid #aaa;
-            max-width: 550px;
-            margin: 0 auto;
-            padding: 20px 25px;
+            .register-box {
+                background: white;
+                border: 1px solid #aaa;
+                max-width: 550px;
+                margin: 0 auto;
+                padding: 20px 25px;
             }
-            h2 {
-            margin-top: 5px;
+            .register-box h2 {
+                margin-top: 5px;
             }
-            .row {
-            margin-bottom: 14px;
+            .form-row {
+                margin-bottom: 14px;
             }
-            label {
-            display: block;
-            margin-bottom: 4px;
-            font-weight: bold;
+            .form-row label {
+                display: block;
+                margin-bottom: 4px;
+                font-weight: bold;
             }
-            input {
-            width: 95%;
-            padding: 6px 8px;
-            border: 1px solid #777;
+            .form-row input {
+                width: 95%;
+                padding: 6px 8px;
+                border: 1px solid #777;
             }
-            .err {
-            color: #b00;
-            font-size: 13px;
-            min-height: 18px;
+            .error-msg {
+                color: #b00;
+                font-size: 13px;
+                min-height: 18px;
             }
-            button {
-            padding: 8px 18px;
-            margin-right: 8px;
-            background: #ddd;
-            border: 1px solid #666;
-            cursor: pointer;
+            .reg-button {
+                padding: 8px 18px;
+                margin-right: 8px;
+                background: #ddd;
+                border: 1px solid #666;
+                cursor: pointer;
             }
             #regBtn {
-            background: #2e6b2e;
-            color: white;
-            border: none;
+                background: #2e6b2e;
+                color: white;
+                border: none;
             }
         </style>
     </head>
@@ -97,46 +96,49 @@
                 <a href="register.html" class="active">REGISTER</a>
             </div>
         </nav>
-        
-        <div class="box">
-            <h2>Seller Registration</h2>
-            <form id="regForm">
-                <div class="row">
-                    <label>Full name</label>
-                    <input type="text" id="fullname">
-                    <div class="err" id="eName"></div>
-                </div>
-                <div class="row">
-                    <label>Address</label>
-                    <input type="text" id="address">
-                    <div class="err" id="eAddr"></div>
-                </div>
-                <div class="row">
-                    <label>Phone (China)</label>
-                    <input type="text" id="phone">
-                    <div class="err" id="ePhone"></div>
-                </div>
-                <div class="row">
-                    <label>Email</label>
-                    <input type="text" id="email">
-                    <div class="err" id="eEmail"></div>
-                </div>
-                <div class="row">
-                    <label>Username</label>
-                    <input type="text" id="username">
-                    <div class="err" id="eUser"></div>
-                </div>
-                <div class="row">
-                    <label>Password</label>
-                    <input type="password" id="password">
-                    <div class="err" id="ePass"></div>
-                </div>
-                <div>
-                    <button type="submit" id="regBtn">Register</button>
-                    <button type="button" id="clearBtn">Clear</button>
-                </div>
-            </form>
+
+        <div class="register-container">
+            <div class="register-box">
+                <h2>Seller Registration</h2>
+                <form id="regForm">
+                    <div class="form-row">
+                        <label>Full name</label>
+                        <input type="text" id="fullname">
+                        <div class="error-msg" id="eName"></div>
+                    </div>
+                    <div class="form-row">
+                        <label>Address</label>
+                        <input type="text" id="address">
+                        <div class="error-msg" id="eAddr"></div>
+                    </div>
+                    <div class="form-row">
+                        <label>Phone (China)</label>
+                        <input type="text" id="phone">
+                        <div class="error-msg" id="ePhone"></div>
+                    </div>
+                    <div class="form-row">
+                        <label>Email</label>
+                        <input type="text" id="email">
+                        <div class="error-msg" id="eEmail"></div>
+                    </div>
+                    <div class="form-row">
+                        <label>Username</label>
+                        <input type="text" id="username">
+                        <div class="error-msg" id="eUser"></div>
+                    </div>
+                    <div class="form-row">
+                        <label>Password</label>
+                        <input type="password" id="password">
+                        <div class="error-msg" id="ePass"></div>
+                    </div>
+                    <div>
+                        <button type="submit" id="regBtn" class="reg-button">Register</button>
+                        <button type="button" id="clearBtn" class="reg-button">Clear</button>
+                    </div>
+                </form>
+            </div>
         </div>
+
         <script>
             let nameInp = document.getElementById('fullname');
             let addrInp = document.getElementById('address');
@@ -217,5 +219,6 @@
                 eName.innerText = eAddr.innerText = ePhone.innerText = eEmail.innerText = eUser.innerText = ePass.innerText = '';
             };
         </script>
+
     </body>
 </html>
