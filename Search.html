@@ -1,15 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search - CarNext</title>
+        <style>
+            .logo-img {
+                position: absolute;
+                top: 5px;
+                left: 50px;
+                width: 140px;
+                height: auto;
+            }
 
-        .search-bar { display: flex; gap: 10px; margin-bottom: 20px; padding: 15px; background: #e9ecef; border-radius: 4px; }
-        .search-bar input, .search-bar select { padding: 10px; border: 1px solid #ccc; border-radius: 4px; flex: 1; }
-        .btn-search { background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+            .links {
+                background-color: gray;
+                text-align: right;
+                padding: 20px 0;
+                margin-top: 10px;
+            }
+
+            .links a {
+                display: inline-block;
+                color: white;
+                font-size: 30px;
+                margin: 0 50px;
+                padding: 20px 50px;
+                text-decoration: none;
+            }
+
+            .links a:hover {
+                background-color: darkgray;
+                color: black;
+            }
+
+            .links a.active {
+                background-color: darkgray;
+                color: black;
+            }
+
+            .search-container {
+                max-width: 1200px;
+                margin: 70px auto;
+                padding: 0 20px;
+            }
+
+            .search-bar {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+                padding: 15px;
+                background: #e9ecef;
+                border-radius: 4px;
+            }
+            .search-bar input, .search-bar select {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                flex: 1;
+            }
+            .btn-search {
+                background: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .car-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            .car-card {
+                border: 1px solid #eee;
+                border-radius: 8px;
+                overflow: hidden;
+                transition: transform 0.2s;
+                cursor: pointer;
+                background: white;
+            }
+            .car-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            .car-img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                background: #ddd;
+            }
+            .car-info {
+                padding: 15px;
+            }
+            .car-title {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .car-price {
+                color: #007bff;
+                font-size: 1.1rem;
+                font-weight: bold;
+            }
+            .car-meta {
+                color: #666;
+                font-size: 0.9rem;
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="LOGO.jpg" class="logo-img">
         
-        .car-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .car-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: transform 0.2s; cursor: pointer; }
-        .car-card:hover { transform: translateY(-5px); box-shadow: var(--card-shadow); }
-        .car-img { width: 100%; height: 180px; object-fit: cover; background: #ddd; }
-        .car-info { padding: 15px; }
-        .car-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; }
-        .car-price { color: var(--primary-color); font-size: 1.1rem; font-weight: bold; }
-        .car-meta { color: #666; font-size: 0.9rem; margin-top: 10px; display: flex; justify-content: space-between; }
+        <nav>
+            <div class="logo"></div>
+            <div class="links">
+                <a href="index.html">HOME</a>
+                <a href="search.html" class="active">SEARCH</a>
+                <a href="add-car.html">SELL</a>
+                <a href="login.html">LOGIN</a>
+                <a href="register.html">REGISTER</a>
+            </div>
+        </nav>
 
-       
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="Brand, model...">
+                <select>
+                    <option>All fuel types</option>
+                    <option>Petrol</option>
+                    <option>Diesel</option>
+                    <option>Hybrid</option>
+                    <option>Electric</option>
+                </select>
+                <button class="btn-search">Search</button>
+            </div>
+
+            <div class="car-grid">
+                <div class="car-card">
+                    <div class="car-img"></div>
+                    <div class="car-info">
+                        <div class="car-title">Toyota Camry</div>
+                        <div class="car-price">$25,000</div>
+                        <div class="car-meta">
+                            <span>2020</span>
+                            <span>Petrol</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-img"></div>
+                    <div class="car-info">
+                        <div class="car-title">Honda Civic</div>
+                        <div class="car-price">$22,000</div>
+                        <div class="car-meta">
+                            <span>2021</span>
+                            <span>Petrol</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-img"></div>
+                    <div class="car-info">
+                        <div class="car-title">BMW X5</div>
+                        <div class="car-price">$55,000</div>
+                        <div class="car-meta">
+                            <span>2022</span>
+                            <span>Diesel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
