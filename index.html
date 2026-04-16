@@ -36,10 +36,96 @@
                 background-color: darkgray;
                 color: black;
             }
+
+            .banner {
+                background-image: url(index-background.jpg);
+                background-size: cover;
+                height: 600px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 60px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+            .quick-menu {
+                max-width: 1000px;
+                margin: 0 auto 60px;
+                display: flex;
+                gap: 30px;
+                padding: 0 20px;
+            }
+            .menu-item {
+                flex: 1;
+                background: white;
+                padding: 30px;
+                text-align: center;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px;
+                font-size: 20px;
+                font-weight: bold;
+                cursor: pointer;
+                margin-top: 60px;
+            }
+            .menu-item:hover {
+                background: #f5f5f5;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .section-title {
+                color: red;
+                font-size: 35px;
+                font-weight: bold;
+                margin-bottom: 40px;
+                border-left: 5px solid red;
+                padding-left: 15px;
+            }
+
+            .car-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 60px;
+                margin-bottom: 60px;
+            }
+            .car-card {
+                border: 1px solid white;
+                border-radius: 8px;
+                overflow: hidden;
+                background: white;
+            }
+            .car-img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                background: #ddd;
+            }
+            .car-info {
+                padding: 15px;
+            }
+            .car-title {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+            .car-price {
+                color: #007bff;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+
+            .footer {
+                background-color: dimgray;
+                color: white;
+                text-align: center;
+                padding: 20px;
+            }
         </style>
     </head>
     <body>
-        
         <img src="LOGO.jpg" class="logo-img">
         
         <nav>
@@ -52,5 +138,68 @@
                 <a href="register.html">REGISTER</a>
             </div>
         </nav>
+        
+        <div class="banner">
+            Welcome to CarNext - Get Your Next Car
+        </div>
+
+        <div class="quick-menu">
+            <div class="menu-item" onclick="location.href='search.html'">Browse Cars</div>
+            <div class="menu-item" onclick="location.href='add-car.html'">Sell Cars</div>
+            <div class="menu-item" onclick="location.href='login.html'">Seller Login</div>
+        </div>
+
+        <div class="container">
+            <div class="section-title">Hot Recommended</div>
+            <div class="car-grid">
+                <div class="car-card">
+                    <img class="car-img" src="2022-Toyota-GR-86-001-1536.jpg">
+                    <div class="car-info">
+                        <div class="car-title">Toyota GR 86</div>
+                        <div class="car-price">RMB308,000</div>
+                    </div>
+                </div>
+                <div class="car-card">
+                    <img class="car-img" src="2018-Ford-Mustang-GT-001-1536.jpg">
+                    <div class="car-info">
+                        <div class="car-title">Ford Mustang GT</div>
+                        <div class="car-price">RMB258,000</div>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <img class="car-img" src="2022-BMW-M135i-001-1536.jpg">
+                    <div class="car-info">
+                        <div class="car-title">BMW M135i</div>
+                        <div class="car-price">RMB168,800</div>
+                    </div>
+                </div>
+                <div class="car-card">
+                    <img class="car-img" src="2022-Kia-Stinger-GT-002-1536.jpg">
+                    <div class="car-info">
+                        <div class="car-title">Kia Stinger GT</div>
+                        <div class="car-price">RMB148,000</div>
+                    </div>
+                </div>
+                <div class="car-card">
+                    <img class="car-img" src="2017-Volvo-S90-001-1536.jpg">
+                    <div class="car-info">
+                        <div class="car-title">Volvo S90</div>
+                        <div class="car-price">RMB118,000</div>
+                    </div>
+                </div>
+                <div class="car-card">
+                    <img class="car-img" src="2018-Tesla-Model-3-001-1536.jpg">
+                    <div class="car-info">
+                        <div class="car-title">Tesla Model 3</div>
+                        <div class="car-price">RMB99,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2026 CarNext Car Trading System | All Rights Reserved
+        </div>
     </body>
 </html>
