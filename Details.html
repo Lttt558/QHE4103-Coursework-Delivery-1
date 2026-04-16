@@ -1,0 +1,169 @@
+
+        .detail-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .detail-image { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; background: #eee; }
+        .detail-price { font-size: 2rem; color: var(--primary-color); font-weight: bold; }
+        .detail-specs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0; }
+        .spec-item { background: #f8f9fa; padding: 10px; border-radius: 4px; border: 1px solid #eee; }
+        .btn-contact { background: var(--primary-color); color: white; padding: 15px; width: 100%; border: none; border-radius: 4px; font-size: 1.1rem; cursor: pointer; }
+
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航：用于演示切换页面 -->
+    <nav>
+        <button onclick="switchPage('add-car')">发布车辆</button>
+        <button onclick="switchPage('search')">搜索车辆</button>
+        <button onclick="switchPage('details')">车辆详情</button>
+    </nav>
+
+    <div class="container">
+        
+        <!-- 页面 1: 发布车辆 -->
+        <section id="add-car" class="page-section active">
+            <h2>发布您的爱车</h2>
+            <form id="carForm">
+                <div class="form-group">
+                    <label>车辆品牌</label>
+                    <select required>
+                        <option value="">请选择品牌</option>
+                        <option>宝马 (BMW)</option>
+                        <option>奔驰 (Mercedes-Benz)</option>
+                        <option>奥迪 (Audi)</option>
+                        <option>特斯拉 (Tesla)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>车辆型号</label>
+                    <input type="text" placeholder="例如：Model 3, 3系" required>
+                </div>
+                <div class="form-group">
+                    <label>年份</label>
+                    <input type="number" placeholder="2023" min="1990" max="2026" required>
+                </div>
+                <div class="form-group">
+                    <label>售价 (元)</label>
+                    <input type="number" placeholder="请输入价格" required>
+                </div>
+                <div class="form-group">
+                    <label>车辆图片</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>详细描述</label>
+                    <textarea rows="4" placeholder="请输入车况描述..."></textarea>
+                </div>
+                <button type="button" class="btn-submit" onclick="alert('车辆发布成功！')">立即发布</button>
+            </form>
+        </section>
+
+        <!-- 页面 2: 搜索列表 -->
+        <section id="search" class="page-section">
+            <h2>搜索车辆</h2>
+            <!-- 筛选栏 -->
+            <div class="search-bar">
+                <select id="makeFilter">
+                    <option value="">所有品牌</option>
+                    <option>宝马</option>
+                    <option>奥迪</option>
+                </select>
+                <select id="yearFilter">
+                    <option value="">所有年份</option>
+                    <option>2023</option>
+                    <option>2022</option>
+                    <option>2021</option>
+                </select>
+                <button class="btn-search" onclick="filterCars()">搜索</button>
+            </div>
+
+            <!-- 车辆列表 -->
+            <div class="car-grid" id="carList">
+                <!-- 车辆卡片 1 -->
+                <div class="car-card" onclick="switchPage('details')">
+                    < img src="your-image-url-1.jpg" alt="Car" class="car-img"> <!-- 实际使用时请替换src -->
+                    <div class="car-info">
+                        <div class="car-title">宝马 3系 325Li</div>
+                        <div class="car-price">¥ 285,000</div>
+                        <div class="car-meta">
+                            <span>2022款</span>
+                            <span>3.5万公里</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 车辆卡片 2 -->
+                <div class="car-card" onclick="switchPage('details')">
+                    < img src="your-image-url-2.jpg" alt="Car" class="car-img">
+                    <div class="car-info">
+                        <div class="car-title">奥迪 A6L 45 TFSI</div>
+                        <div class="car-price">¥ 320,000</div>
+                        <div class="car-meta">
+                            <span>2023款</span>
+                            <span>1.2万公里</span>
+                        </div>
+                    </div>
+                </div>
+                 <!-- 车辆卡片 3 -->
+                 <div class="car-card" onclick="switchPage('details')">
+                    < img src="your-image-url-3.jpg" alt="Car" class="car-img">
+                    <div class="car-info">
+                        <div class="car-title">特斯拉 Model Y</div>
+                        <div class="car-price">¥ 249,900</div>
+                        <div class="car-meta">
+                            <span>2023款</span>
+                            <span>0.5万公里</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页面 3: 车辆详情 -->
+        <section id="details" class="page-section">
+            <div class="detail-header">
+                <h2 id="detailTitle">宝马 3系 325Li M运动套装</h2>
+                <div class="detail-price">¥ 285,000</div>
+            </div>
+            
+            <!-- 车辆主图 -->
+            < img src="your-image-url-1.jpg" alt="Car Detail" class="detail-image">
+
+            <div class="detail-specs">
+                <div class="spec-item"><strong>品牌:</strong> 宝马</div>
+                <div class="spec-item"><strong>型号:</strong> 3系</div>
+                <div class="spec-item"><strong>年份:</strong> 2022</div>
+                <div class="spec-item"><strong>里程:</strong> 35,000 km</div>
+                <div class="spec-item"><strong>变速箱:</strong> 自动</div>
+                <div class="spec-item"><strong>燃料:</strong> 汽油</div>
+            </div>
+
+            <h3>车辆描述</h3>
+            <p>个人一手车，全程4S店保养，无事故，车况精品。M运动套装，内饰成色99新，带原厂行车记录仪和脚垫。</p >
+
+            <button class="btn-contact">联系卖家</button>
+        </section>
+
+    </div>
+
+    <script>
+        // 简单的页面切换逻辑
+        function switchPage(pageId) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // 显示目标页面
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // 模拟搜索功能（仅前端演示）
+        function filterCars() {
+            const make = document.getElementById('makeFilter').value;
+            const year = document.getElementById('yearFilter').value;
+            // 这里仅做演示，实际项目中需要后端支持
+            if(make || year) {
+                alert(`正在筛选: 品牌=${make || '全部'}, 年份=${year || '全部'}`);
+            }
+        }
+    </script>
+</body>
+</html>
