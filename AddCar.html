@@ -50,7 +50,7 @@
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             }
             .publish-box h2 {
-                border-bottom: 2px solid #007bff;
+                border-bottom: 2px solid;
                 padding-bottom: 10px;
                 margin-bottom: 20px;
             }
@@ -111,13 +111,13 @@
                 <h2>Publish New Car</h2>
 
                 <div class="form-group">
-                    <label>Car Brand</label>
-                    <input type="text" placeholder="e.g. Toyota, Honda, BMW">
+                    <label>Car Model</label>
+                    <input type="text" placeholder="e.g. Toyota GR 86, Ford Mustang">
                 </div>
 
                 <div class="form-group">
-                    <label>Car Model</label>
-                    <input type="text" placeholder="e.g. Camry, Civic, X5">
+                    <label>Color</label>
+                    <input type="text" placeholder="e.g. White, Black">
                 </div>
 
                 <div class="form-group">
@@ -126,18 +126,18 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" placeholder="e.g. Beijing, Shanghai">
+                </div>
+
+                <div class="form-group">
                     <label>Price (RMB)</label>
                     <input type="text" placeholder="e.g. 258,000">
                 </div>
 
                 <div class="form-group">
-                    <label>Fuel Type</label>
-                    <select>
-                        <option>Petrol</option>
-                        <option>Diesel</option>
-                        <option>Hybrid</option>
-                        <option>Electric</option>
-                    </select>
+                    <label>Car Image</label>
+                    <input type="file" accept="image/*">
                 </div>
 
                 <button class="btn-submit">Submit Car Information</button>
