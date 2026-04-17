@@ -2,29 +2,38 @@
 <html>
     <head>
         <title>Register - CarNext</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
             .logo-img {
                 position: absolute;
                 top: 5px;
-                left: 50px;
-                width: 140px;
+                left: 20px;
+                width: 100px;
                 height: auto;
+                z-index: 999;
             }
 
             .links {
                 background-color: gray;
-                text-align: right;
-                padding: 20px 0;
+                text-align: center;
+                padding: 15px 10px;
                 margin-top: 10px;
             }
 
             .links a {
                 display: inline-block;
                 color: white;
-                font-size: 30px;
-                margin: 0 50px;
-                padding: 20px 50px;
+                font-size: 18px;
+                margin: 5px 10px;
+                padding: 10px 15px;
                 text-decoration: none;
+                border-radius: 4px;
             }
 
             .links a:hover {
@@ -39,42 +48,57 @@
 
             .register-container {
                 background: #f0f0f0;
-                padding: 80px 0;
+                padding: 60px 20px;
+                min-height: calc(100vh - 220px);
+                display: flex;
+                align-items: center;
             }
             .register-box {
                 background: white;
                 border: 1px solid #aaa;
+                width: 100%;
                 max-width: 550px;
                 margin: 0 auto;
-                padding: 20px 25px;
+                padding: 30px;
+                border-radius: 8px;
             }
             .register-box h2 {
-                margin-top: 5px;
+                margin-bottom: 25px;
+                text-align: center;
+                color: #333;
             }
             .form-row {
-                margin-bottom: 14px;
+                margin-bottom: 20px;
             }
             .form-row label {
                 display: block;
-                margin-bottom: 4px;
+                margin-bottom: 8px;
                 font-weight: bold;
+                color: #444;
             }
             .form-row input {
-                width: 95%;
-                padding: 6px 8px;
+                width: 100%;
+                padding: 12px 15px;
                 border: 1px solid #777;
+                border-radius: 4px;
+                font-size: 16px;
             }
             .error-msg {
                 color: #b00;
                 font-size: 13px;
                 min-height: 18px;
+                margin-top: 5px;
             }
             .reg-button {
-                padding: 8px 18px;
-                margin-right: 8px;
+                padding: 12px 20px;
+                margin-right: 10px;
+                margin-bottom: 10px;
                 background: #ddd;
                 border: 1px solid #666;
                 cursor: pointer;
+                border-radius: 4px;
+                font-size: 16px;
+                min-width: 120px;
             }
             #regBtn {
                 background: #28a745;
@@ -90,6 +114,30 @@
                 color: white;
                 text-align: center;
                 padding: 20px;
+            }
+
+            @media (max-width: 768px) {
+                .links a {
+                    font-size: 16px;
+                    padding: 8px 12px;
+                }
+                .register-box {
+                    padding: 25px 20px;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .logo-img {
+                    width: 80px;
+                    left: 10px;
+                }
+                .register-box {
+                    padding: 20px 15px;
+                }
+                .reg-button {
+                    width: 100%;
+                    margin-right: 0;
+                }
             }
         </style>
     </head>
